@@ -3,14 +3,27 @@
   <head>
     <title>RubyonRailsCMS</title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'admin/application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'admin/application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <% if flash[:notice] %>
+  	 <div class="notice"><%= notice %></div>
+    <% end %>
+    <% if flash[:alert] %>
+	   <div class="alert"><%= alert %></div>
+    <% end %>
 
-    <%= yield %>
-
+    <%= render '/layouts/partials/nav' %>
+    <div class="container-fluid display-table">
+      <div class="row display-table-row">
+        <div class="col-md-2 col-sm-12 col-xs-12 display-table-cell admin-sidebar">
+          <%= render '/layouts/partials/sidebare' %>
+        </div>
+        <div class="col-md-10 col-sm-12 col-xs-12 display-table-cell admin-content">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

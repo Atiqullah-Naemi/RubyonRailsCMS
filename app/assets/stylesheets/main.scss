@@ -1,0 +1,25 @@
+html, body
+{
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+	padding: 0;
+	font-size: 16px;
+	font-family: 'Times New Romans' sans-serif;
+}
+
+.login-registration
+{
+	background: #eee;
+	margin-top: 6rem;
+	padding: 2rem;
+	border-radius: 2px;
+}
+.form-control, .btn-block
+{
+	height: 45px;
+}
+.btn-default
+{
+	padding: 0.5rem 2rem;
+}

@@ -1,0 +1,121 @@
+/* variables */
+$sidebar_color: #071110;
+$white: #fff;
+$body_font: 'Times New Romans';
+$yellow: #EFFF06;
+$lightgray: #ddd;
+$red: #FF0000;
+
+
+html, body 
+{
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  font-family: $body_font !important;
+}
+.navbar-default
+{
+  margin-bottom: 0px !important;
+  border-radius: 0px !important;
+  background-color: $sidebar_color !important;
+  border-color: $sidebar_color !important;
+  font-size: 18px;
+  opacity: 0.85;
+}
+ul li 
+{
+  list-style: none;
+}
+a 
+{
+  text-decoration: none;
+}
+.navbar-brand, ul li a 
+{
+  color: $white !important;
+}
+.display-table 
+{
+  display: table;
+  height: 100%;
+  width: 100%;
+  padding: 0px !important;
+  margin: 0px !important;
+}
+.display-table-row 
+{
+  display: table-row;
+  height: 100%;
+}
+.display-table-cell 
+{
+  display: table-cell;
+  height: 100%;
+  float: none !important;
+}
+.admin-sidebar
+{
+  background: $sidebar_color;
+  color: $lightgray;
+  font-size: 18px;
+  opacity: 0.85;
+}
+.admin-sidebar ul 
+{
+  padding-left: 0px;
+  padding-right: 2rem;
+  margin-top: 4rem;
+}
+.admin-sidebar ul li 
+{
+  margin-bottom: 1.5rem;
+  padding-left: 1rem;
+}
+.admin-sidebar ul li i.fa 
+{
+  color: $yellow;
+  opacity: 0.7;
+  margin-right: 1rem;
+  opacity: 0.85;
+  transition: all 1s;
+}
+.admin-sidebar ul li i.fa:hover
+{
+  transform: rotate(360deg);
+  color: $red;
+}
+.admin-content {
+}
+.btn-default {
+  padding: 0.5rem 2rem !important;
+  font-size: 18px !important;
+  color: $white !important;
+  background: $sidebar_color !important;
+}
+.create-btn
+{
+  margin-top: 3rem;
+}
+.fr-wrapper.show-placeholder
+{
+  min-height: 300px;
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 17%;
+  right: 0;
+  min-width: 100%;
+  min-height: 40px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
+.main
+{
+  margin-bottom: 8rem;
+}
