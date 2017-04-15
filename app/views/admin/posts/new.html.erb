@@ -13,7 +13,7 @@
 			</div>
 			<div class="form-group">
 				<label class="btn btn-default btn-file">
-					<span class="glyphicon glyphicon-cloud-upload"></span>
+					<span class="glyphicon glyphicon-upload"></span>
 				 	Upload Featured Image <%= f.file_field :image %>
 				</label>
 			</div>
@@ -33,8 +33,6 @@
 
 
 <!-- Modal -->
-
-<!-- Modal -->
 <div class="modal fade post-category" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -48,7 +46,7 @@
         		<%= f.text_field :name, class: 'form-control', placeholder: 'Name'  %>
         	</div>
         	<div class="form-group">
-        		<%= f.text_area :content, class: 'form-control', placeholder: 'Description'  %>
+        		<%= f.text_area :content, class: 'form-control', placeholder: 'Description', rows: '8'  %>
         	</div>
         	<div class="form-group">
         		<%= f.submit class: 'btn btn-default pull-right'  %>

@@ -41,6 +41,9 @@
 //= require plugins/table.min.js
 //= require plugins/url.min.js
 //= require plugins/video.min.js
+//= require Chart.bundle
+//= require chartkick
+//= require highcharts
 //= require turbolinks
 //= require_tree .
 

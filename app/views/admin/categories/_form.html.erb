@@ -1,0 +1,13 @@
+<%= form_for [:admin, @category] do |f| %>
+	<div class="form-group">
+		<%= f.label :name %>
+		<%= f.text_field :name, class: 'form-control', placeholder: 'Name' %>
+	</div>
+	<div class="form-group">
+		<%= f.label :content %>
+		<%= f.text_area :content, class: 'form-control', placeholder: 'Description', rows: '5' %>
+	</div>
+	<div class="form-group">
+	<%= f.submit class: 'btn btn-default pull-right' %>
+	</div>
+<% end %>

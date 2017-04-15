@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170402055049) do
+ActiveRecord::Schema.define(version: 20170413151059) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -18,6 +18,24 @@ ActiveRecord::Schema.define(version: 20170402055049) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "name"
+    t.text     "message"
+    t.boolean  "status"
+    t.integer  "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_comments_on_post_id"
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "post_categories", force: :cascade do |t|
@@ -29,6 +47,15 @@ ActiveRecord::Schema.define(version: 20170402055049) do
     t.index ["Post_id"], name: "index_post_categories_on_Post_id"
   end
 
+  create_table "post_tags", force: :cascade do |t|
+    t.integer  "Post_id"
+    t.integer  "Tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["Post_id"], name: "index_post_tags_on_Post_id"
+    t.index ["Tag_id"], name: "index_post_tags_on_Tag_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.string   "image"
@@ -37,6 +64,7 @@ ActiveRecord::Schema.define(version: 20170402055049) do
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
     t.integer  "category_id"
+    t.integer  "tag_id"
   end
 
   create_table "settings", force: :cascade do |t|
@@ -45,6 +73,13 @@ ActiveRecord::Schema.define(version: 20170402055049) do
     t.string   "logo"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -60,6 +95,8 @@ ActiveRecord::Schema.define(version: 20170402055049) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "username"
+    t.string   "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

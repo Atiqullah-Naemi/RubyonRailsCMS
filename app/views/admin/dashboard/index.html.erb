@@ -1,0 +1,33 @@
+<div class="row content">
+	<div class="col-md-12">
+		<h1 class="dashboard-heading">
+		RubyonRails CMS Dashboard</h1><br />
+	</div>
+</div>
+<hr>
+<div class="row content-dashboard">
+	<div class="col-md-3">
+		<%= link_to admin_posts_path do %>
+			<i class="fa fa-pencil-square-o"></i>
+			<%= @posts.count %> Posts
+		<% end %>
+	</div>
+	<div class="col-md-3">
+		<%= link_to admin_pages_path do %>
+			<i class="fa fa-newspaper-o"></i>
+			<%= @pages.count %> Pages 
+		<% end %> 
+	</div>
+	<div class="col-md-3">
+		<%= link_to admin_categories_path do %>
+			<i class="fa fa-folder-open"></i>
+			<%= @categories.count %> Categories
+		<% end %>
+	</div>
+	<div class="col-md-3">
+		<%= link_to admin_comments_path do %>
+			<i class="fa fa-comments"></i>
+			<%= @comments.count %> Comments
+		<% end %>
+	</div>
+</div>
