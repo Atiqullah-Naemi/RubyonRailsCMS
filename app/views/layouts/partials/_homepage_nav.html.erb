@@ -1,0 +1,16 @@
+<ul class="homepage-nav">
+	<li><%= link_to root_path do %>
+		<i class="fa fa-home"></i> Home
+		<% end %>
+	</li>
+	<li>About Us</li>
+	<li><%= link_to "Our Blog", posts_path %></li>
+	<li>Contact Us</li>
+</ul>
+
+<ul class="homepage-nav pull-right home-right">
+	<li><%= link_to admin_dashboard_index_path do %>
+		<i class="fa fa-user-circle"></i> Sign In
+		<% end %>
+	</li>
+</ul>

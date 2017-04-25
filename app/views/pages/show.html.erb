@@ -1,0 +1,14 @@
+<div class="owl-carousel col-lg-12">
+	<% @page.sliders.each do |slide| %>
+		<div style="width: 100%; height: 400px; background: url(<%= slide.image %>"></div>
+	<% end %>
+</div>
+
+<script>
+	$(document).ready(function(){
+	  $('.owl-carousel').owlCarousel({
+		  autoPlay: 3000,
+		  items: 2
+		});
+	});
+</script>

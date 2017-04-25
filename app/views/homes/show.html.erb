@@ -1,0 +1,13 @@
+<div class="jumbotron homepage" style="background-image: url(<%= Home.home_image %>);"></div>
+<div class="overlay">
+	<div class="container">
+	  	<div class="homepage-content">
+	  		<h1><%= Home.home_title %></h1>
+	  		<p><%= raw(Home.home_content) %></p>
+	  		<p class="home-buttons">
+	  			<%= raw(link_to Home.home_first_button, posts_path, class: 'home-btn') %>
+	  			<%= raw(link_to Home.home_second_button, new_user_registration_path, class: 'home-btn') %>
+	  		</p>
+	  	</div>
+	 </div>
+</div>

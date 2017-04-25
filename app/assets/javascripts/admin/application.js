@@ -44,6 +44,7 @@
 //= require Chart.bundle
 //= require chartkick
 //= require highcharts
+//= require cocoon
 //= require turbolinks
 //= require_tree .
 

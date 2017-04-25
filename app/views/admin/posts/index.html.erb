@@ -8,22 +8,31 @@
 		<% end %>
 	</div>
 </div>
+<div class="row">
+	<div class="col-md-12">
+		<%= render 'layouts/partials/search', searchRoute: admin_posts_path %>
+	</div>
+</div>
 <hr />
 <div class="row content">
 	<div class="col-md-12">
-		<div class="table">
+		<table class="table">
 			<thead>
 				<tr>
 					<th>#</th>
 					<th>Title</th>
+					<th>Author</th>
+					<th>Created_At</th>
 					<th></th>
 				</tr>
 			</thead>
 			<tbody>
+				<tr>
 				<% @posts.each do |post| %>
 					<td><%= post.id %></td>
 					<td><%= post.title %></td>
-					<td><%= time_ago_in_words(post.created_at) %></td>
+					<td><%= current_user.username %></td>
+					<td><%= time_ago_in_words(post.created_at) %> ago</td>
 					<td>
 						<div class="row">
 							<div class="col-md-6">
@@ -32,14 +41,15 @@
 								<% end %>
 							</div>
 							<div class="col-md-6">
-								<%= link_to admin_post_path(post), method: :delete, data: { confirm: 'Are You Sure?' } do %>
-									<i class="fa fa-trash" aria-hidden="true"></i>
+								<%= link_to admin_post_path(post), method: :delete, data: { confirm: 'Are You Sure?' }, class: 'btn btn-danger btn-block' do %>
+									<i class="fa fa-trash" aria-hidden="true"></i> Delete
 								<% end %>
 							</div>
 						</div>
 					</td>
 				<% end %>
+				</tr>
 			</tbody>
-		</div>
+		</table>
 	</div>
 </div>

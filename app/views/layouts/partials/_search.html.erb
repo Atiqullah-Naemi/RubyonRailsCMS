@@ -1,0 +1,6 @@
+<%= form_tag(searchRoute, method: :get) do %>
+	<div class="form-group">
+		<%= text_field_tag :search, nil, class: 'form-control search-input', placeholder: 'Search...' %>
+		<%= submit_tag :Search, class: 'btn btn-default search-btn' %>
+	</div>
+<% end %>

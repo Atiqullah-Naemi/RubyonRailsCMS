@@ -1,0 +1,23 @@
+<div class="row content main">
+	<div class="col-md-12">
+		<%= form_for [:admin, @setting] do |f| %>
+			<div class="form-group">
+				<%= f.label :site_name %>
+				<%= f.text_field :site_name, class: 'form-control', placeholder: 'Site Name', autofocus: true %>
+			</div>
+			<div class="form-group">
+				<%= f.label :posts_per_page %>
+				<%= f.number_field :posts_per_page, class: 'form-control', placeholder: 'Posts per page' %>
+			</div>
+			<div class="form-group">
+				<h4>Choose Logo</h4>
+				<label class="btn btn-default">
+				 	Browse&hellip;<%= f.file_field :logo, style: 'display: none' %>
+				</label>
+			</div>
+			<div class="form-group">
+				<%= f.submit class: 'btn btn-default pull-right' %>
+			</div>
+		<% end %>
+	</div>
+</div>

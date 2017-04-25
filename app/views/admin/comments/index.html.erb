@@ -1,3 +1,32 @@
+<div class="row content">
+	<div class="col-md-12">
+		<h1>All Comments</h1>
+	</div>
+</div>
+<hr />
+
+<% @comments.each do |comment| %>
+<div class="row content">
+	<div class="col-md12">
+		<p><strong>
+			<%= comment.name %> Commented on 
+			<strong><%= comment.post.title %></strong>
+		</strong></p>
+		<p class="well"><%= comment.message %></p>
+		<p class="pull-right">
+			<%= 
+			if params[:status] == 'true'
+				link_to 'Un-Approve', admin_comment_path(comment, status: false), method: :put
+			else
+				link_to 'Approve', admin_comment_path(comment, status: true), method: :put
+			end
+			%>
+			<%= link_to 'Delete', admin_comment_path(comment), method: :delete, data: { confirm: 'Are You Sure?' } %>
+		</p>
+	</div>
+</div>
+<% end %>
+
 <h1>Admin::Comments#index</h1>
 <p>Find me in app/views/admin/comments/index.html.erb</p>
 <%= link_to 'Approve', admin_comments_path(status: true) %>

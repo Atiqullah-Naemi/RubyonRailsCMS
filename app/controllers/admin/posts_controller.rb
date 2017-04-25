@@ -1,8 +1,12 @@
 class Admin::PostsController < Admin::ApplicationController
-  before_action :find_post, only: [:show, :edit, :update, :destroy]
+  before_action :find_post, only: [:edit, :update, :destroy]
 
   def index
-    @posts = Post.all.order(created_at: :desc)
+    if params[:search]
+      @posts = Post.search(params[:search]).all.order(created_at: :desc)
+    else
+      @posts = Post.all.order(created_at: :desc)
+    end
   end
 
   def new
@@ -21,10 +25,8 @@ class Admin::PostsController < Admin::ApplicationController
     end
   end
 
-  def show
-  end
-
   def edit
+    @category = current_user.categories.build
   end
 
   def update

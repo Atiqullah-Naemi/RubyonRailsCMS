@@ -1,6 +1,10 @@
-<div class="user_profile" style="background-image: url(<%= current_user.image %>)">
-	
-</div>
+<% if current_user.image.present? %>
+	<div class="user_profile" style="background-image: url(<%= current_user.image %>)">	
+	</div>
+<% else %>
+	<p><%= current_user.email %></p>
+<% end %>
+
 <ul>
 	<li>
 		<%= link_to admin_dashboard_index_path do %>
@@ -40,6 +44,11 @@
 	<li>
 		<%= link_to new_admin_setting_path do %>
 			<i class="fa fa-cogs" aria-hidden="true"></i> Settings
+		<% end %>
+	</li>
+	<li>
+		<%= link_to new_admin_home_path do %>
+			<i class="fa fa-home" aria-hidden="true"></i> Home Page
 		<% end %>
 	</li>
 </ul>

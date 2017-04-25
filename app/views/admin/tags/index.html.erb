@@ -1,2 +1,68 @@
-<h1>Admin::Tags#index</h1>
-<p>Find me in app/views/admin/tags/index.html.erb</p>
+<div class="row content">
+	<div class="col-md-6">
+		<h1>All Tags</h1>
+	</div>
+	<div class="col-md-6">
+		<%= link_to 'Create New Tags', '#new_tags_modal', 'data-toggle' => 'modal', class: 'btn btn-default create-btn pull-right' %>
+	</div>
+</div>
+
+<!-- Search form -->
+<div class="row">
+	<div class="col-md-12">
+		<%= render 'layouts/partials/search', searchRoute: admin_tags_path %>
+	</div>
+</div>
+<hr />
+
+<!-- Main Content -->
+<div class="row">
+	<div class="col-md-10">
+		<table class="table">
+			<thead>
+				<th>#</th>
+				<th>Name</th>
+				<th>Created At</th>
+				<th></th>
+			</thead>
+			<tbody id="tagsContainer">
+				<% @tags.each do |tag| %>
+				<tr>
+					<td><%= tag.id %></td>
+					<td><%= tag.name %></td>
+					<td><%= time_ago_in_words(tag.created_at) %> ago</td>
+					<td>
+						<div class="row">
+							<div class="col-md-6">
+							<%= link_to edit_admin_tag_path(tag), class: 'btn btn-default btn-block' do %>
+								<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
+							<% end %>	
+							</div>
+							<div class="col-md-6">
+							<%= link_to admin_tag_path(tag), class: 'btn btn-danger btn-block', method: :delete, data: { confirm: 'Are you sure?' } do %>
+								<i class="fa fa-trash" aria-hidden="true"></i> Delete
+							<% end %>	
+							</div>
+						</div>
+					</td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<!-- Modal to create new tags -->
+<div class="modal fade" id="new_tags_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Create new Tags</h4>
+      </div>
+      <div class="modal-body">
+        <%= render 'form', modal: true %>
+      </div>
+    </div>
+  </div>
+</div>

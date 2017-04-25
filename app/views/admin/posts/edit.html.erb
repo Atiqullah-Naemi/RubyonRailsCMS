@@ -1,2 +1,22 @@
-<h1>Admin::Posts#edit</h1>
-<p>Find me in app/views/admin/posts/edit.html.erb</p>
+<div class="row content">
+	<div class="col-md-12">
+		<h1>Edit Post</h1>
+	</div>
+</div>
+<hr />
+<%= render 'form' %>
+<script>
+  $(function() {
+    $('textarea#editor').froalaEditor()
+  });
+</script>
+
+
+
+
+
+
+
+
+
+

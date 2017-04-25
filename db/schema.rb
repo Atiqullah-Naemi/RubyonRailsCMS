@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170413151059) do
+ActiveRecord::Schema.define(version: 20170421150730) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -30,12 +30,23 @@ ActiveRecord::Schema.define(version: 20170413151059) do
     t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
+  create_table "homes", force: :cascade do |t|
+    t.string   "title"
+    t.text     "content"
+    t.string   "image"
+    t.string   "first_button"
+    t.string   "second_button"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "pages", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
     t.string   "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   create_table "post_categories", force: :cascade do |t|
@@ -73,6 +84,15 @@ ActiveRecord::Schema.define(version: 20170413151059) do
     t.string   "logo"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+  end
+
+  create_table "sliders", force: :cascade do |t|
+    t.string   "image"
+    t.text     "text"
+    t.integer  "page_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["page_id"], name: "index_sliders_on_page_id"
   end
 
   create_table "tags", force: :cascade do |t|

@@ -1,30 +1,25 @@
 <div class="row content">
 	<div class="col-md-6">
-		<h1>All Categories</h1><br />
+		<h1>All Categories</h1>
 	</div>
 	<div class="col-md-6">
-		<%= link_to 'Create New Category', '#new_person_modal', 'data-toggle' => 'modal', class: 'btn btn-default create-btn pull-right' %>
+		<%= link_to 'Create New Category', '#new_category_modal', 'data-toggle' => 'modal', class: 'btn btn-default create-btn pull-right' %>
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-12">
-		<form action="#">
-			<div class="form-group">
-				<input type="text" class="form-control search-input" placeholder="Search...">
-				<button type="submit" class="btn btn-default search-btn">
-					<i class="fa fa-search"></i>
-				</button>
-			</div>
-		</form>
+		<%= render 'layouts/partials/search', searchRoute: admin_categories_path %>
 	</div>
 </div>
 <hr />
 <div class="row">
-	<div class="col-md-8 col-md-offset-2">
+	<div class="col-md-10">
 		<table class="table">
 			<thead>
 				<th>#</th>
-				<th>Name</th>
+				<th>Category Name</th>
+				<th>Author</th>
+				<th>Created_At</th>
 				<th></th>
 			</thead>
 			<tbody id="categoryContainer">
@@ -32,6 +27,8 @@
 				<tr>
 					<td><%= category.id %></td>
 					<td><%= category.name %></td>
+					<td><%= current_user.username %></td>
+					<td><%= time_ago_in_words(category.created_at) %> ago</td>
 					<td>
 						<div class="row">
 							<div class="col-md-6">
@@ -54,7 +51,7 @@
 </div>
 
 <!-- Modal to create new category -->
-<div class="modal fade" id="new_person_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="new_category_modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">

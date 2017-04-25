@@ -4,59 +4,7 @@
 	</div>
 </div>
 <hr />
-<div class="row content main">
-	<div class="col-md-12">
-		<%= form_for [:admin, @post] do |f| %>
-			<div class="form-group">
-				<%= f.label :title %>
-				<%= f.text_field :title, class: 'form-control', placeholder: 'Title' %>
-			</div>
-			<div class="form-group">
-				<label class="btn btn-default btn-file">
-					<span class="glyphicon glyphicon-upload"></span>
-				 	Upload Featured Image <%= f.file_field :image %>
-				</label>
-			</div>
-			<div class="form-group">
-				<%= f.select :category_id, Category.all.pluck(:name, :id), { :include_blank => "Select Category" }, { multiple: true, class: 'selectize' } %>
-			</div>
-			<div class="form-group">
-				<%= f.label :content %>
-				<%= f.text_area :content, class: 'form-control', id: 'editor', rows: '12' %>
-			</div>
-			<div class="form-group">
-				<%= f.submit 'Create New Post', class: 'btn btn-default pull-right' %>
-			</div>
-		<% end %>
-	</div>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade post-category" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Create New Category</h4>
-      </div>
-      <div class="modal-body">
-        <%= form_for [:admin, @category] do |f| %>
-        	<div class="form-group">
-        		<%= f.text_field :name, class: 'form-control', placeholder: 'Name'  %>
-        	</div>
-        	<div class="form-group">
-        		<%= f.text_area :content, class: 'form-control', placeholder: 'Description', rows: '8'  %>
-        	</div>
-        	<div class="form-group">
-        		<%= f.submit class: 'btn btn-default pull-right'  %>
-        	</div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
-
+<%= render 'form' %>
 <script>
   $(function() {
     $('textarea#editor').froalaEditor()

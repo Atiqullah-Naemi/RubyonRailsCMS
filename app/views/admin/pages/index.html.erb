@@ -1,2 +1,51 @@
-<h1>Admin::Pages#index</h1>
-<p>Find me in app/views/admin/pages/index.html.erb</p>
+<div class="row content">
+	<div class="col-md-6">
+		<h1>All Pages</h1>
+	</div>
+	<div class="col-md-6">
+		<%= link_to new_admin_page_path, class: 'btn btn-default pull-right create-btn' do %>
+			<i class="fa fa-pencil" aria-hidden="true"></i> Create New Page
+		<% end %>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<%= render 'layouts/partials/search', searchRoute: admin_pages_path %>
+	</div>
+</div>
+<hr />
+<div class="row content">
+	<div class="col-md-12">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Title</th>
+					<th>Created At</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @pages.each do |page| %>
+					<td><%= page.id %></td>
+					<td><%= page.title %></td>
+					<td><%= time_ago_in_words(page.created_at) %> ago</td>
+					<td>
+						<div class="row">
+							<div class="col-md-6">
+								<%= link_to edit_admin_page_path(page), class: 'btn btn-default btn-block' do %>
+									<i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
+								<% end %>
+							</div>
+							<div class="col-md-6">
+								<%= link_to admin_page_path(page), method: :delete, data: { confirm: 'Are You Sure?' }, class: 'btn btn-danger btn-block' do %>
+									<i class="fa fa-trash" aria-hidden="true"></i> Delete
+								<% end %>
+							</div>
+						</div>
+					</td>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>

@@ -10,4 +10,8 @@ class Post < ApplicationRecord
 	validates :title, presence: true
 	validates :content, presence: true
 
+	def self.search(query)
+		where("title like ? OR content like ?", "%#{query}%", "%#{query}%")
+	end
+
 end

@@ -2,7 +2,11 @@ class Admin::CategoriesController < Admin::ApplicationController
   before_action :find_category, only: [:edit, :update, :destroy]
 
   def index
-    @categories = Category.all.order(created_at: :desc)
+    if params[:search]
+      @categories = Category.search(params[:search]).all.order(created_at: :desc)
+    else
+      @categories = Category.all.order(created_at: :desc)
+    end
     @category = current_user.categories.build
   end
 

@@ -1,0 +1,55 @@
+<div class="row content main">
+	<div class="col-md-12">
+		<%= form_for [:admin, @post] do |f| %>
+			<div class="form-group">
+				<%= f.label :title %>
+				<%= f.text_field :title, class: 'form-control', placeholder: 'Title', autofocus: true %>
+			</div>
+			<div class="form-group">
+				<h4>Choose Featured Image</h4>
+				<label class="btn btn-default">
+				 	Browse&hellip;<%= f.file_field :image, style: 'display: none' %>
+				</label>
+			</div>
+			<div class="form-group">
+				<%= f.select :category_id, Category.all.pluck(:name, :id), { :include_blank => "Select Categories" }, { multiple: true, class: 'selectize' } %>
+			</div>
+			<div class="form-group">
+				<%= f.select :tag_id, Tag.all.collect { |c| [c.name, c.id] }, { :include_blank => 'Select Tags' }, { multiple: true, class: 'select_tags' } %>
+			</div>
+			<div class="form-group">
+				<%= f.label :content %>
+				<%= f.text_area :content, class: 'form-control', id: 'editor', rows: '12' %>
+			</div>
+			<div class="form-group">
+				<%= f.submit class: 'btn btn-default pull-right' %>
+			</div>
+		<% end %>
+	</div>
+</div>
+
+
+<!-- Category Modal -->
+<div class="modal fade post-category" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Create New Category</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_for [:admin, @category] do |f| %>
+        	<div class="form-group">
+        		<%= f.text_field :name, class: 'form-control', placeholder: 'Name'  %>
+        	</div>
+        	<div class="form-group">
+        		<%= f.text_area :content, class: 'form-control', placeholder: 'Description', rows: '8'  %>
+        	</div>
+        	<div class="form-group">
+        		<%= f.submit class: 'btn btn-default pull-right'  %>
+        	</div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
