@@ -22,6 +22,7 @@
 			<thead>
 				<th>#</th>
 				<th>Name</th>
+				<th>Author</th>
 				<th>Created At</th>
 				<th></th>
 			</thead>
@@ -30,7 +31,9 @@
 				<tr>
 					<td><%= tag.id %></td>
 					<td><%= tag.name %></td>
+					<td><%= tag.user.username %></td>
 					<td><%= time_ago_in_words(tag.created_at) %> ago</td>
+					<% if tag.user == current_user || current_user.admin? %>
 					<td>
 						<div class="row">
 							<div class="col-md-6">
@@ -45,6 +48,7 @@
 							</div>
 						</div>
 					</td>
+					<% end %>
 				</tr>
 				<% end %>
 			</tbody>

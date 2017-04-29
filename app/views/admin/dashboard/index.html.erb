@@ -5,6 +5,8 @@
 	</div>
 </div>
 <hr>
+
+<!-- big icons -->
 <div class="row content-dashboard">
 	<div class="col-md-3">
 		<%= link_to admin_posts_path do %>
@@ -31,3 +33,23 @@
 		<% end %>
 	</div>
 </div>
+
+<!-- latest users and comment -->
+<div class="row">
+	<div class="col-md-6"></div>
+	<div class="col-md-6">
+		<div class="latest-users">
+			<h3 class="latest-users-title">Latest Users</h3>
+			<hr>
+			<% @users.each do |user| %>
+				<div class="latest-user" style="background: url(<%= user.image %>);">
+					<h3 class="username"><%= user.username %></h3>
+				</div>
+
+			<% end %>
+			<div class="clr"></div>
+		</div>
+	</div>
+</div>
+
+

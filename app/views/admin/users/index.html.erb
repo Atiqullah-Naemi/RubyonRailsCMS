@@ -26,7 +26,11 @@
 				<% @users.each do |user| %>
 				<tr class="user-row">
 					<td><%= user.id %></td>
-					<td class="users-list" style="background: url(<%= user.image %>);"></td>
+					<% if user.image.present? %>
+						<td class="users-list" style="background: url(<%= user.image %>);"></td>
+					<% else %>
+						<td class="without-image-user"><i class="fa fa-user"></i></td>
+					<% end %>
 					<td><%= user.username %></td>
 					<td><%= user.email %></td>
 					<td><%= time_ago_in_words(user.created_at) %> ago</td>
@@ -45,3 +49,5 @@
 		</table>
 	</div>
 </div>
+
+<!-- admin_destroy_user_path(user) -->

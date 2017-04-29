@@ -31,8 +31,9 @@
 				<% @posts.each do |post| %>
 					<td><%= post.id %></td>
 					<td><%= post.title %></td>
-					<td><%= current_user.username %></td>
+					<td><%= post.user.username %></td>
 					<td><%= time_ago_in_words(post.created_at) %> ago</td>
+					<% if post.user == current_user %>
 					<td>
 						<div class="row">
 							<div class="col-md-6">
@@ -47,6 +48,7 @@
 							</div>
 						</div>
 					</td>
+					<% end %>
 				<% end %>
 				</tr>
 			</tbody>

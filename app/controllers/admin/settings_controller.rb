@@ -19,6 +19,7 @@ class Admin::SettingsController < Admin::ApplicationController
   end
 
   def edit
+    authorize Setting
   end
 
   def update

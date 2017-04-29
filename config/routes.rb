@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root "homes#show"
   get "/admin" => "admin/dashboard#index"
+  #match 'users/:id' => 'admin/users#destroy', :via => :delete, :as => :admin_destroy_user
 
   devise_for :users
 

@@ -19,6 +19,7 @@ class Admin::HomesController < Admin::ApplicationController
   end
 
   def edit
+    authorize Home
   end
 
   def update
