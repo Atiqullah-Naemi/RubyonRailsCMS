@@ -7,10 +7,6 @@ class Admin::ApplicationController < ActionController::Base
 	protect_from_forgery with: :exception
 	layout = 'admin/application'
 
-	def convert_to_boolean(string)
-		ActiveRecord::Type::Boolean.new.deserialize(string)
-	end
-
 	private
 
 	def user_not_authorized

@@ -1,0 +1,8 @@
+<% if params[:controller] == 'posts' || params[:controller] == 'categories' %>
+	<div class="categories-widget">
+		<h3><%= link_to "All Categories", posts_path %></h3>
+		<% @categories.each do |category| %>
+			<%= link_to category.name, category_path(category.id), class: 'list-group-item' %>
+		<% end %>
+	</div>
+<% end %>

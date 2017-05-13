@@ -1,16 +1,8 @@
 class Admin::CommentsController < Admin::ApplicationController
-  before_action :find_comment, only: [:update, :destroy]
+  before_action :find_comment, only: [:destroy]
 
   def index
-  	@comments = Comment.where(status: convert_to_boolean(params[:status]))
-  end
-
-  def update
-    if @comment.update(status: params[:status])
-      redirect_to :back, notice: 'Comment status changed successfully'
-    else
-      redirect_to :back, alert: 'There was a problem changing comment status'
-    end
+  	@comments = Comment.all
   end
 
   def destroy

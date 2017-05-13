@@ -1,0 +1,30 @@
+
+<% if @posts.exists? %>
+	<% @posts.each do |post| %>
+		<div class="row">
+			<% if post.image? %>
+				<div class="col-md-4 post-thumbnail">
+					<%= image_tag(post.image.url) %>
+				</div>
+				<div class="col-md-8">
+					<h3><%= post.title %></h3>
+					<div class="main-content">
+						<%= raw(post.content.truncate(200)) %>
+					</div>
+					<%= link_to "Read More", post_path(post), class: "btn btn-primary readmore-btn pull-left" %>
+				</div>
+				<% else %>
+				<div class="col-md-12">
+					<h3><%= post.title %></h3>
+					<div class="main-content">
+						<%= raw(post.content.truncate(200)) %>
+					</div>
+					<%= link_to "Read More", post_path(post), class: "btn btn-primary readmore-btn pull-left" %>
+				</div>
+			<% end %>
+		</div>
+	<% end %>
+<% else %>
+<h2>No posts in this category yet</h2>
+<% end %>
+

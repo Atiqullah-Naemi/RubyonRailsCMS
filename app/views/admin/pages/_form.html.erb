@@ -16,12 +16,29 @@
 				<%= f.text_area :content, class: 'form-control', id: 'editor', rows: '12' %>
 			</div>
 			<div class="form-group">
+				<h3>Add Sliders</h3>
+				<hr>
 				<%= f.fields_for :sliders do |slider| %>
 					<%= render 'slider_fields', f: slider %>
 				<% end %>
 				<div class="links">
-					<%= link_to_add_association '+ Add Content', f, :sliders, class: 'btn btn-default' %>
+					<%= link_to_add_association '+ Add Slider', f, :sliders, class: 'btn btn-default' %>
 				</div>
+			</div>
+			<div class="form-group">
+				<h3>Add More Content</h3>
+				<hr>
+				<%= f.fields_for :repeaters do |repeater| %>
+					<%= render 'repeater_fields', f: repeater %>
+				<% end %>
+				<div class="links">
+					<%= link_to_add_association '+ Add More Content', f, :repeaters, class: 'btn btn-default' %>
+				</div>
+			</div>
+			<hr>
+			<div class="form-group">
+				<%= f.check_box :add_to_menu %>
+				<%= f.label :Add_To_Menu %>
 			</div>
 			<div class="form-group">
 				<%= f.submit class: 'btn btn-default pull-right' %>

@@ -1,6 +1,25 @@
-<div class="jumbotron">
-  <div class="container">
-  	<h1>Welcome to RubyonRailsCMS</h1>
-  	<p><a class="btn btn-default btn-lg" href="#" role="button">Learn more</a></p>
-  </div>
+<div class="jumbotron blogpage" style="background-image: url(<%= Home.home_image %>);"></div>
+<div class="blog-overlay">
+	<div class="container">
+	  	<div class="blogpage-content">
+			<h1>Blog Posts</h1>
+	  	</div>
+	 </div>
+</div>
+
+<!-- posts loop -->
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<% @posts.each do |post| %>
+				<div class="col-md-6 blog-posts">
+					<%= link_to post_path(post) do %>
+						<%= image_tag(post.image.url) %>
+						<div class="blog-posts-overlay"></div>
+						<h3><%= post.title %></h3>
+					<% end %>
+				</div>
+			<% end %>
+		</div>
+	</div>
 </div>

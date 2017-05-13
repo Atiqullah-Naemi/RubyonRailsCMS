@@ -1,9 +1,12 @@
 <ul class="homepage-nav">
 	<li><%= link_to root_path do %>
-		<i class="fa fa-home"></i> Home
+			<% if Setting.logo.present? %>
+	          <%= image_tag(Setting.logo.url) %>
+	        <% else %>
+	          <%= Setting.site_name %>
+        	<% end %>
 		<% end %>
 	</li>
-	<li>About Us</li>
 	<li><%= link_to "Our Blog", posts_path %></li>
 	<li>Contact Us</li>
 </ul>

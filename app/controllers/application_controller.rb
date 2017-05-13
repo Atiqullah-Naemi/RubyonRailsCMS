@@ -4,7 +4,9 @@ class ApplicationController < ActionController::Base
   layout :layout_by_resource  
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
+
   protected
+
   def configure_permitted_parameters
 	devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:email, :password, :password_confirmation, :current_password, :username, :image) }
   end
@@ -14,7 +16,7 @@ class ApplicationController < ActionController::Base
     if devise_controller? && resource_name == :user && action_name == "edit"
       "admin/application"
     elsif devise_controller? && resource_name == :user && action_name == "new"
-      "home_page"
+      "login_registration"
     else
       "application"
     end

@@ -1,0 +1,30 @@
+<div class="comments">
+	<h3 class="comments-count">
+		<%= pluralize(@post.comments.count, "Comment") %>
+	</h3>
+	<% @post.comments.each do |comment| %>
+		<div class="row comment">
+			<p>
+			<strong><%= comment.name %></strong>
+			<span><%= time_ago_in_words(comment.created_at) %></span>
+			</p>
+			<p class="comment-body"><%= comment.message %></p>
+		</div>
+	<% end %>
+
+	<!-- comment form -->
+	<div class="row add-comment">
+		<h3>Add a Comment</h3>
+		<%= form_for([@post, @post.comments.build]) do |f| %>
+			<div class="form-group">
+				<%= f.text_field :name, class: 'form-control', placeholder: 'Your Name' %>
+			</div>
+			<div class="form-group">
+				<%= f.text_area :message, class: 'form-control', placeholder: 'Message', rows: '6' %>
+			</div>
+			<div class="form-group">
+				<%= f.submit "Add Comment", class: 'btn btn-default' %>
+			</div>
+		<% end %>
+	</div>
+</div>

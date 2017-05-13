@@ -27,6 +27,7 @@
 			</thead>
 			<tbody>
 				<% @pages.each do |page| %>
+				<tr>
 					<td><%= page.id %></td>
 					<td><%= page.title %></td>
 					<td><%= time_ago_in_words(page.created_at) %> ago</td>
@@ -44,6 +45,7 @@
 							</div>
 						</div>
 					</td>
+				</tr>
 				<% end %>
 			</tbody>
 		</table>

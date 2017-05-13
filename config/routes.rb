@@ -7,8 +7,11 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :posts, only: [:index, :show]
-  resources :pages , only: [:index, :show]
+  resources :posts, only: [:index, :show] do 
+    resources :comments, only: [:index, :show, :create]
+  end
+  resources :categories, only: [:show]
+  resources :pages , only: [:show]
 
   namespace :admin do
     resources :dashboard, only: [:index]
@@ -19,7 +22,7 @@ Rails.application.routes.draw do
     resources :categories
     resources :tags
     resources :users, only: [:index, :destroy]
-    resources :comments, only: [:index, :update, :destroy]
+    resources :comments, only: [:index, :destroy]
   end
 
 

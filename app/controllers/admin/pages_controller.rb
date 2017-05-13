@@ -47,6 +47,6 @@ class Admin::PagesController < Admin::ApplicationController
   end
 
   def page_params
-    params.require(:page).permit(:title, :image, :content, sliders_attributes: [:id, :image, :text, :_destroy])
+    params.require(:page).permit(:title, :image, :content, :add_to_menu, sliders_attributes: [:id, :image, :text, :_destroy], repeaters_attributes: [:id, :image, :content, :_destroy])
   end
 end

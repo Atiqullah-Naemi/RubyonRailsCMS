@@ -27,8 +27,8 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
 				<% @posts.each do |post| %>
+					<tr>
 					<td><%= post.id %></td>
 					<td><%= post.title %></td>
 					<td><%= post.user.username %></td>
@@ -49,8 +49,8 @@
 						</div>
 					</td>
 					<% end %>
+					</tr>
 				<% end %>
-				</tr>
 			</tbody>
 		</table>
 	</div>

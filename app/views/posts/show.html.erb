@@ -1,2 +1,20 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<div class="jumbotron blogpage" style="background-image: url(<%= @post.image %>);"></div>
+<div class="blog-overlay">
+	<div class="container">
+	  	<div class="blogpage-content">
+			<h1><%= @post.title %></h1>
+	  	</div>
+	 </div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<%= raw (@post.content) %>
+	</div>
+
+	<div class="row well">
+		<div class="col-md-8">
+			<%= render 'comments' %>
+		</div>
+	</div>
+</div>
