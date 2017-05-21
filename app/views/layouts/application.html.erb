@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RubyonRailsCMS</title>
+    <title>
+    <% if Setting.site_name.present? %>
+      <%= Setting.site_name %>
+    <% else %>RubyonRailsCMS
+    <% end %>
+    </title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>

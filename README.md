@@ -2,7 +2,7 @@
 
 RubyonRailsCMS is an advanced CMS and blogging system. Download it for free and build awesome websites with it.
 To download, configure and use RubyonRailsCMS follow the below steps:
-1. Download and Rubyinstaller
+1. Download Rubyinstaller
 2. create a folder and name it anything you want, for example "MyWebsite"
 3. install rubyinstaller in newly created folder (MyWebsite) - during installation check the check box "Add to Path"
 4. download and install Devkit (create a devkit folder inside MyWebsite and install extract devkit there)

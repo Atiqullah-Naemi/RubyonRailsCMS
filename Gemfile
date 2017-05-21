@@ -24,6 +24,7 @@ gem 'wysiwyg-rails', '~> 2.5', '>= 2.5.1'
 gem 'chartkick', '~> 2.2', '>= 2.2.3'
 gem 'cocoon', '~> 1.2', '>= 1.2.9'
 gem 'pundit', '~> 1.1'
+gem 'will_paginate', '~> 3.1', '>= 3.1.5'
 
 group :development, :test do
   gem 'byebug', platform: :mri
