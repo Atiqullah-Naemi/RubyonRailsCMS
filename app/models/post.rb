@@ -11,6 +11,9 @@ class Post < ApplicationRecord
 	validates :title, presence: true
 	validates :content, presence: true
 
+	extend FriendlyId
+  	friendly_id :title, use: :slugged
+
 	def self.search(query)
 		where("title like ? OR content like ?", "%#{query}%", "%#{query}%")
 	end

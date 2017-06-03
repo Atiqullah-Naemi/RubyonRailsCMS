@@ -7,6 +7,9 @@ class Page < ApplicationRecord
 	accepts_nested_attributes_for :sliders, reject_if: proc { |att| att['image'].blank? }, allow_destroy: true
 	accepts_nested_attributes_for :repeaters, reject_if: proc { |atts| atts['image'].blank? }, allow_destroy: true
 
+	extend FriendlyId
+  	friendly_id :title, use: :slugged
+
 	def self.search(query)
 		where("title like ? OR content like ?", "%#{query}%", "%#{query}%")
 	end
